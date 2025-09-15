@@ -1,39 +1,49 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SLASH - تسجيل الدخول</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SLASH - القسم 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0f1f;
+  --primary:#7c3aed;
+  --secondary:#06b6d4;
+  --glow:#aef800;
+}
+* {box-sizing:border-box;margin:0;padding:0;}
+body {font-family:'Poppins',sans-serif;color:#fff;background:linear-gradient(180deg,var(--bg),#050a18);min-height:100vh;}
+header {display:flex;justify-content:space-between;align-items:center;padding:15px 10%;}
+.logo {font-size:26px;font-weight:900;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;}
+nav a {margin:0 12px;color:#fff;text-decoration:none;font-weight:500;transition:.3s;}
+nav a:hover {color:var(--glow);}
+.hero {text-align:center;padding:100px 20px;}
+.hero h1 {font-size:2.2rem;margin-bottom:15px;}
+.hero span {color:var(--secondary);}
+.hero p {margin-bottom:20px;color:#ddd;}
+.cta {display:inline-block;padding:12px 28px;border:2px solid var(--glow);border-radius:50px;color:var(--glow);text-decoration:none;font-weight:600;transition:.3s;}
+.cta:hover {background:var(--glow);color:#0a0f1f;box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);transform:scale(1.05);}
+section {text-align:center;padding:80px 20px;}
+@media(max-width:768px){header{flex-direction:column;gap:10px}.hero h1{font-size:1.6rem}.cta{padding:10px 20px;font-size:1rem}}
+</style>
 </head>
 <body>
-  <canvas id="bg"></canvas>
 
-  <header>
-    <div class="logo">SLASH</div>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="services.html">الخدمات</a>
-      <a href="vision.html">الرؤية</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">SLASH</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="vision.html">الرؤية</a>
+    <a href="contact.html">تواصل معنا</a>
+  </nav>
+</header>
 
-  <section class="login-container">
-    <h1>SLASH</h1>
-    <h2>تسجيل الدخول</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="اسم المستخدم" required>
-      <input type="password" id="password" placeholder="كلمة المرور" required>
-      <button type="submit" class="cta">تسجيل الدخول</button>
-    </form>
-  </section>
+<section class="hero">
+  <h1>مرحبًا بك في <span>القسم 4</span></h1>
+  <p>المحتوى الاحترافي والأدوات المدفوعه . الحديث متاح هنا.</p>
+  <a href="login.html" class="cta">اذهب لتسجيل الدخول</a>
+</section>
 
-  <div class="popup-socials">
-    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
