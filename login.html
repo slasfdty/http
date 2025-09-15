@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SLASH - تسجيل الدخول</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0f1f;
+  --primary:#7c3aed;
+  --secondary:#06b6d4;
+  --glow:#aef800;
+}
+* {box-sizing:border-box;margin:0;padding:0;}
+body {font-family:'Poppins',sans-serif;color:#fff;background:linear-gradient(180deg,var(--bg),#050a18);min-height:100vh;display:flex;justify-content:center;align-items:center;position:relative;}
+canvas#bg {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+.login-container {max-width:400px;width:90%;padding:40px;background:rgba(255,255,255,0.05);border-radius:15px;text-align:center;box-shadow:0 0 20px rgba(174,248,0,0.1);z-index:1;}
+.login-container h1 {font-size:2.5rem;margin-bottom:10px;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent;}
+.login-container h2 {margin-bottom:20px;color:#ccc;}
+.login-container input {width:100%;padding:12px 15px;margin-bottom:15px;border-radius:8px;border:none;outline:none;background:rgba(255,255,255,0.05);color:#fff;}
+.login-container button {width:100%;padding:12px 28px;border:2px solid var(--glow);border-radius:50px;background:transparent;color:var(--glow);font-weight:600;cursor:pointer;transition:.3s;}
+.login-container button:hover {background:var(--glow);color:#0a0f1f;box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);transform:scale(1.05);}
+.login-container .back {margin-top:15px;display:inline-block;color:var(--glow);text-decoration:none;font-weight:500;transition:.3s;}
+.login-container .back:hover {color:#fff;transform:scale(1.05);}
+@media(max-width:768px){.login-container h1{font-size:2rem}}
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="login-container">
+  <h1>تسجيل الدخول</h1>
+  <h2>ادخل بياناتك لدخول القسم الخاص بنا</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="اسم المستخدم" required>
+    <input type="password" id="password" placeholder="كلمة المرور" required>
+    <button type="submit">دخول</button>
+  </form>
+  <a href="index.html" class="back">عودة للصفحة الرئيسية</a>
+</div>
+
+<script>
+// =========================
+// تأثير النجوم في الخلفية
+// =========================
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  stars = [];
+  for (let i = 0; i < 150; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2,
+      d: Math.random() * 0.5 + 0.2
+    });
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#fff';
+  stars.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  update();
+}
+
+function update() {
+  stars.forEach(s => {
+    s.y += s.d;
+    if (s.y > canvas.height) {
+      s.y = 0;
+      s.x = Math.random() * canvas.width;
+    }
+  });
+}
+
+function animate() {
+  draw();
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', resize);
+resize();
+animate();
+
+// =========================
+// نظام تسجيل الدخول القسم الرابع
+// =========================
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+  const users = [
+    {username:"fsocity", password:"slash", page:"user-admin.html"},
+    {username:"Mariomty", password:"1234", page:"user-user1.html"},
+    {username:"Yazan", password:"jooali", page:"user-user2.html"}
+  ];
+
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const validUser = users.find(u => u.username === username && u.password === password);
+
+    if (validUser) {
+      window.location.href = validUser.page;
+    } else {
+      alert('اسم المستخدم أو كلمة المرور غير صحيحة!');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
