@@ -70,7 +70,8 @@ if (loginForm) {
     if (validUser) {
       window.location.href = validUser.page;
     } else {
-      alert('اسم المستخدم أو كلمة المرور غير صحيحة!');
+      alert('يوجد مشكله جاري الحل قريبا!');
     }
   });
 }
+
