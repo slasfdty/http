@@ -4,22 +4,43 @@
   --secondary:#06b6d4;
   --glow:#aef800;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{
+
+/* =========================
+   قواعد عامة
+========================= */
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
   font-family:'Poppins',sans-serif;
   color:#fff;
   background:linear-gradient(180deg,var(--bg),#050a18);
   min-height:100vh;
 }
-canvas#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
 
-header{
+canvas#bg {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* =========================
+   الرأس والتنقل
+========================= */
+header {
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 10%;
 }
-.logo{
+
+.logo {
   font-size:26px;
   font-weight:900;
   background:linear-gradient(90deg,var(--primary),var(--secondary));
@@ -27,14 +48,19 @@ header{
   background-clip:text;
   color:transparent;
 }
-nav a{
+
+nav a {
   margin:0 12px;
   color:#fff;
   text-decoration:none;
   font-weight:500;
   transition:.3s;
 }
-nav a:hover{color:var(--glow)}
+
+nav a:hover {
+  color:var(--glow);
+}
+
 nav a.section4-btn {
   background: var(--primary);
   color: #fff;
@@ -42,19 +68,35 @@ nav a.section4-btn {
   border-radius: 25px;
   transition: 0.3s;
 }
+
 nav a.section4-btn:hover {
   background: var(--secondary);
   transform: scale(1.05);
 }
 
-.hero{
+/* =========================
+   الأقسام الرئيسية
+========================= */
+.hero {
   text-align:center;
   padding:100px 20px;
 }
-.hero h1{font-size:2.2rem;margin-bottom:15px}
-.hero span{color:var(--secondary)}
-.hero p{margin-bottom:20px;color:#ddd}
-.cta{
+
+.hero h1 {
+  font-size:2.2rem;
+  margin-bottom:15px;
+}
+
+.hero span {
+  color:var(--secondary);
+}
+
+.hero p {
+  margin-bottom:20px;
+  color:#ddd;
+}
+
+.cta {
   display:inline-block;
   padding:12px 28px;
   border:2px solid var(--glow);
@@ -64,69 +106,230 @@ nav a.section4-btn:hover {
   font-weight:600;
   transition:.3s;
 }
-.cta:hover{
+
+.cta:hover {
   background:var(--glow);
   color:#0a0f1f;
   box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);
   transform:scale(1.05);
 }
 
-.page{
+/* =========================
+   صفحة الأقسام والكروت
+========================= */
+.page {
   text-align:center;
   padding:80px 20px;
 }
-.page h2{font-size:2rem;margin-bottom:20px}
-.page p{max-width:700px;margin:0 auto;color:#ccc;line-height:1.6}
-blockquote{
-  margin-top:20px;
-  font-size:1.2rem;
-  color:var(--secondary);
-  font-style:italic;
+
+.page h2 {
+  font-size:2rem;
+  margin-bottom:20px;
 }
 
-.popup-socials{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  margin-top:20px;
+.page p {
+  max-width:700px;
+  margin:0 auto;
+  color:#ccc;
+  line-height:1.6;
 }
-.popup-socials a{
-  font-size:28px;
-  color:#fff;
+
+.card-container {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  margin-top:40px;
+}
+
+.card {
+  width:250px;
+  padding:20px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.05);
+  text-align:center;
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);
+}
+
+.mac-header {
+  display:flex;
+  justify-content:flex-start;
+  gap:8px;
+  margin-bottom:15px;
+}
+
+.mac-header span {
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  display:inline-block;
+}
+
+.mac-header .red { background:#ff5f57; }
+.mac-header .yellow { background:#ffbd2e; }
+.mac-header .green { background:#28c941; }
+
+.card-title {
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.card-description {
+  font-size:14px;
+  color:#ccc;
+  margin-bottom:15px;
+}
+
+.card .cta {
+  font-size:14px;
+  padding:8px 16px;
+  border-radius:25px;
+}
+
+/* =========================
+   القسم الرابع
+========================= */
+.section4 {
+  text-align:center;
+  padding:80px 20px;
+  background:rgba(255,255,255,0.02);
+  border-radius:15px;
+  margin:40px auto;
+  max-width:1000px;
+  color:#ccc;
+}
+
+.section4 h2 {
+  font-size:2rem;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.section4 p {
+  font-size:1rem;
+  line-height:1.6;
+  max-width:700px;
+  margin:0 auto 20px auto;
+}
+
+.section4 .btn {
+  display:inline-block;
+  padding:12px 28px;
+  border:2px solid var(--glow);
+  border-radius:50px;
+  color:var(--glow);
+  font-weight:600;
+  text-decoration:none;
   transition:.3s;
 }
-.popup-socials a:hover{color:var(--glow);transform:scale(1.2)}
 
-.login-container{
+.section4 .btn:hover {
+  background:var(--glow);
+  color:#0a0f1f;
+  box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);
+  transform:scale(1.05);
+}
+
+/* =========================
+   نموذج تواصل معنا / تسجيل الدخول
+========================= */
+.login-container {
   max-width:400px;
   margin:80px auto;
-  text-align:center;
   padding:40px;
   background:rgba(255,255,255,0.05);
   border-radius:15px;
+  text-align:center;
+  display:none;
 }
-.login-container h1{
+
+.login-container h1 {
   font-size:2.5rem;
   margin-bottom:10px;
   background:linear-gradient(90deg,var(--primary),var(--secondary));
   -webkit-background-clip:text;
   color:transparent;
 }
-.login-container h2{margin-bottom:20px;color:#ccc;}
-.login-container input{
+
+.login-container h2 {
+  margin-bottom:20px;
+  color:#ccc;
+}
+
+.login-container input,
+.login-container textarea {
   width:100%;
   padding:12px 15px;
   margin-bottom:15px;
   border-radius:8px;
   border:none;
   outline:none;
-}
-.login-container button{
-  width:100%;
+  background:rgba(255,255,255,0.05);
+  color:#fff;
 }
 
-@media (max-width:768px){
+.login-container textarea {
+  resize:none;
+  min-height:120px;
+}
+
+.login-container button {
+  width:100%;
+  padding:12px 28px;
+  border:2px solid var(--glow);
+  border-radius:50px;
+  background:transparent;
+  color:var(--glow);
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.login-container button:hover {
+  background:var(--glow);
+  color:#0a0f1f;
+  box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);
+  transform:scale(1.05);
+}
+
+/* =========================
+   أيقونات التواصل الاجتماعي
+========================= */
+.popup-socials {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:20px;
+}
+
+.popup-socials a {
+  font-size:28px;
+  color:#fff;
+  transition:.3s;
+}
+
+.popup-socials a:hover {
+  color:var(--glow);
+  transform:scale(1.2);
+}
+
+/* =========================
+   Media Queries
+========================= */
+@media(max-width:768px){
   header{flex-direction:column;gap:10px}
   .hero h1{font-size:1.6rem}
   .cta{padding:10px 20px;font-size:1rem}
+  .card-container{flex-direction:column;align-items:center}
+  .section4{padding:60px 20px}
+  .login-container{margin:40px 20px 60px;padding:30px}
+  .login-container button{width:100%;padding:10px 20px}
 }
