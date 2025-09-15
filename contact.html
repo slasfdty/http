@@ -1,35 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SLASH - تواصل</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLASH - تواصل معنا</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4d1bdcbf4e.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    :root {
+      --bg:#0a0f1f;
+      --primary:#7c3aed;
+      --secondary:#06b6d4;
+      --glow:#aef800;
+    }
+
+    * {box-sizing:border-box;margin:0;padding:0;}
+    body {font-family:'Poppins',sans-serif;color:#fff;background:linear-gradient(180deg,var(--bg),#050a18);min-height:100vh;text-align:center;padding:40px;}
+    h1 {font-size:2.5rem;margin-bottom:20px;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;color:transparent;}
+    form {max-width:500px;margin:0 auto;background:rgba(255,255,255,0.05);padding:40px;border-radius:15px;box-shadow:0 0 20px rgba(174,248,0,0.1);}
+    input, textarea {width:100%;padding:12px 15px;margin-bottom:15px;border-radius:8px;border:none;outline:none;background:rgba(255,255,255,0.05);color:#fff;}
+    input::placeholder, textarea::placeholder {color:#aaa;}
+    textarea {resize:none;min-height:120px;}
+    button {padding:12px 28px;border:2px solid var(--glow);border-radius:50px;background:transparent;color:var(--glow);font-weight:600;cursor:pointer;transition:.3s;margin-top:10px;}
+    button:hover {background:var(--glow);color:#0a0f1f;box-shadow:0 0 20px var(--glow),0 0 40px var(--glow);transform:scale(1.05);}
+    .back-btn {background:var(--primary);color:#fff;margin-top:20px;text-decoration:none;display:inline-block;}
+    .back-btn:hover {background:var(--secondary);}
+  </style>
 </head>
 <body>
-  <canvas id="bg"></canvas>
+  <h1>تواصل معنا</h1>
+  
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="اسمك" required>
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+    <textarea name="message" placeholder="رسالتك" required></textarea>
+    <button type="submit">إرسال</button>
+  </form>
 
-  <header>
-    <div class="logo">SLASH</div>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="services.html">الخدمات</a>
-      <a href="vision.html">الرؤية</a>
-      <a href="section4.html" class="section4-btn">القسم 4</a>
-    </nav>
-  </header>
+  <!-- زر العودة للصفحة الرئيسية -->
+  <a href="index.html" class="back-btn">⬅ العودة للصفحة الرئيسية</a>
 
-  <section class="page">
-    <h2>تواصل معنا</h2>
-    <p>يمكنك إرسال رسالة لنا عبر البريد الإلكتروني أو أيقونات التواصل أدناه.</p>
-  </section>
+  <script>
+    // EmailJS init
+    emailjs.init("vyr88ivpUJ7xrU1G1"); // استبدل بمفتاحك
 
-  <div class="popup-socials">
-    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-  </div>
+    const contactForm = document.getElementById('contactForm');
 
-  <script src="script.js"></script>
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      emailjs.sendForm('service_hzwb9on','template_a7naj19', this)
+        .then(() => {
+          alert('تم إرسال الرسالة بنجاح!');
+          contactForm.reset();
+        }, (err) => {
+          alert('حدث خطأ، حاول مرة أخرى.');
+          console.error(err);
+        });
+    });
+  </script>
 </body>
 </html>
