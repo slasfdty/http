@@ -68,11 +68,9 @@ if (loginForm) {
     const validUser = users.find(u => u.username === username && u.password === password);
     
     if (validUser) {
-      // إعادة التوجيه إلى الصفحة الخاصة بالمستخدم
       window.location.href = validUser.page;
     } else {
       alert('اسم المستخدم أو كلمة المرور غير صحيحة!');
     }
   });
 }
-
