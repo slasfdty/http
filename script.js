@@ -55,9 +55,9 @@ animate();
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   const users = [
-    {username:"SLASH", password:"12345", page:"user-admin.html"},
+    {username:"fsocity", password:"slash", page:"user-admin.html"},
     {username:"Mariomty", password:"1234", page:"user-user1.html"},
-    {username:"user2", password:"pass2", page:"user-user2.html"}
+    {username:"Yazan", password:"jooali", page:"user-user2.html"}
   ];
 
   loginForm.addEventListener('submit', function(e) {
@@ -75,3 +75,4 @@ if (loginForm) {
     }
   });
 }
+
